@@ -51,7 +51,16 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -127,19 +136,16 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201909051109536_md1.cs" />
-    <Compile Include="Migrations\201909051109536_md1.Designer.cs">
-      <DependentUpon>201909051109536_md1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Base.cs" />
-    <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\animate.min.css" />
@@ -166,6 +172,12 @@
     <Content Include="assets\images\line4.png" />
     <Content Include="assets\images\lines.png" />
     <Content Include="assets\images\loader.gif" />
+    <Content Include="assets\images\logo\EKSCAR.gif" />
+    <Content Include="assets\images\logo\EKSCAR.ico" />
+    <Content Include="assets\images\logo\EKSCAR.svg" />
+    <Content Include="assets\images\logo\EKSCAR2.gif" />
+    <Content Include="assets\images\logo\EKSCAR2.ico" />
+    <Content Include="assets\images\logo\EKSCAR2.svg" />
     <Content Include="assets\images\resource\admin.jpg" />
     <Content Include="assets\images\resource\b1.jpg" />
     <Content Include="assets\images\resource\b2.jpg" />
@@ -347,6 +359,9 @@
     <Content Include="assets\css\fonts\line-awesomeeb4f.ttf" />
     <Content Include="assets\css\fonts\line-awesomeeb4f.woff" />
     <Content Include="assets\css\fonts\line-awesomeeb4f.woff2" />
+    <Content Include="assets\images\logo\EKSCAR.ai" />
+    <Content Include="assets\images\logo\EKSCAR2.ai" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -359,61 +374,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Views\Home\404.html" />
-    <Content Include="Views\Home\about.html" />
-    <Content Include="Views\Home\blog_list.html" />
-    <Content Include="Views\Home\blog_list2.html" />
-    <Content Include="Views\Home\blog_list3.html" />
-    <Content Include="Views\Home\blog_single.html" />
-    <Content Include="Views\Home\candidates_applied_jobs.html" />
-    <Content Include="Views\Home\candidates_change_password.html" />
-    <Content Include="Views\Home\candidates_cv_cover_letter.html" />
-    <Content Include="Views\Home\candidates_dashboard.html" />
-    <Content Include="Views\Home\candidates_job_alert.html" />
-    <Content Include="Views\Home\candidates_list.html" />
-    <Content Include="Views\Home\candidates_list2.html" />
-    <Content Include="Views\Home\candidates_list3.html" />
-    <Content Include="Views\Home\candidates_my_resume.html" />
-    <Content Include="Views\Home\candidates_my_resume_add_new.html" />
-    <Content Include="Views\Home\candidates_profile.html" />
-    <Content Include="Views\Home\candidates_shortlist.html" />
-    <Content Include="Views\Home\candidates_single.html" />
-    <Content Include="Views\Home\candidates_single2.html" />
-    <Content Include="Views\Home\contact.html" />
-    <Content Include="Views\Home\contact2.html" />
-    <Content Include="Views\Home\employer_change_password.html" />
-    <Content Include="Views\Home\employer_job_alert.html" />
-    <Content Include="Views\Home\employer_list1.html" />
-    <Content Include="Views\Home\employer_list2.html" />
-    <Content Include="Views\Home\employer_list3.html" />
-    <Content Include="Views\Home\employer_list4.html" />
-    <Content Include="Views\Home\employer_manage_jobs.html" />
-    <Content Include="Views\Home\employer_packages.html" />
-    <Content Include="Views\Home\employer_post_new.html" />
-    <Content Include="Views\Home\employer_profile.html" />
-    <Content Include="Views\Home\employer_resume.html" />
-    <Content Include="Views\Home\employer_single1.html" />
-    <Content Include="Views\Home\employer_single2.html" />
-    <Content Include="Views\Home\employer_transactions.html" />
-    <Content Include="Views\Home\faq.html" />
-    <Content Include="Views\Home\how_it_works.html" />
-    <Content Include="Views\Home\index2.html" />
-    <Content Include="Views\Home\index3.html" />
-    <Content Include="Views\Home\index4.html" />
-    <Content Include="Views\Home\index5.html" />
-    <Content Include="Views\Home\index6.html" />
-    <Content Include="Views\Home\index7.html" />
-    <Content Include="Views\Home\index8.html" />
-    <Content Include="Views\Home\job-single3.html" />
-    <Content Include="Views\Home\job_list_classic.html" />
-    <Content Include="Views\Home\job_list_grid.html" />
-    <Content Include="Views\Home\job_list_modern.html" />
-    <Content Include="Views\Home\job_single1.html" />
-    <Content Include="Views\Home\job_single2.html" />
-    <Content Include="Views\Home\login.html" />
-    <Content Include="Views\Home\pricing.html" />
-    <Content Include="Views\Home\register.html" />
-    <Content Include="Views\Home\terms_and_condition.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -424,10 +384,20 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\index.cshtml" />
+    <Content Include="Views\Regions\Create.cshtml" />
+    <Content Include="Views\Regions\Delete.cshtml" />
+    <Content Include="Views\Regions\Details.cshtml" />
+    <Content Include="Views\Regions\Edit.cshtml" />
+    <Content Include="Views\Regions\Index.cshtml" />
+    <Content Include="Views\Cities\Create.cshtml" />
+    <Content Include="Views\Cities\Delete.cshtml" />
+    <Content Include="Views\Cities\Details.cshtml" />
+    <Content Include="Views\Cities\Edit.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -443,9 +413,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201909051109536_md1.resx">
-      <DependentUpon>201909051109536_md1.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\ekscarMVC.Models\ekscarMVC.Models.csproj">
+      <Project>{d86153fd-8841-4cde-a865-c02ca15f6fe5}</Project>
+      <Name>ekscarMVC.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
