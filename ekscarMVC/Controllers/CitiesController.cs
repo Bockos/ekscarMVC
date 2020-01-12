@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ekscarMVC.Models;
+using ekscarMVC.Models.Common;
 
 namespace ekscarMVC.Controllers
 {
@@ -46,7 +47,7 @@ namespace ekscarMVC.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,FirstDate,UpdateDate,IsActive")] City city)
+        public ActionResult Create([Bind(Include = "Id,Name,Plate,FirstDate,UpdateDate,IsActive,IsDeleted")] City city)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace ekscarMVC.Controllers
         // daha fazla bilgi için https://go.microsoft.com/fwlink/?LinkId=317598 sayfasına bakın.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,FirstDate,UpdateDate,IsActive")] City city)
+        public ActionResult Edit([Bind(Include = "Id,Name,Plate,FirstDate,UpdateDate,IsActive,IsDeleted")] City city)
         {
             if (ModelState.IsValid)
             {

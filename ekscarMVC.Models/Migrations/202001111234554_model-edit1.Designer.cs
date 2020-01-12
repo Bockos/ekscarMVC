@@ -7,13 +7,13 @@ namespace ekscarMVC.Models.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class mig1 : IMigrationMetadata
+    public sealed partial class modeledit1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(mig1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(modeledit1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912141836469_mig1"; }
+            get { return "202001111234554_model-edit1"; }
         }
         
         string IMigrationMetadata.Source

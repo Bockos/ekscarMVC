@@ -1,30 +1,17 @@
-﻿using ekscarMVC.Models.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ekscarMVC.Models.Maintenance
+namespace ekscarMVC.Models.Common
 {
-    public class Maintenance
+    public class Car
     {
         [Key]
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Bu alan gereklidir!")]
-        [Display(Name = "İl")]
-        public int CityId { get; set; }
-
-        [Required(ErrorMessage = "Bu alan gereklidir!")]
-        [Display(Name = "İlçe")]
-        public int RegionId { get; set; }
-
-        //Car Properties
         [Required(ErrorMessage = "Bu alan gereklidir!")]
         [Display(Name = "Marka")]
         public int BrandId { get; set; }
@@ -41,7 +28,7 @@ namespace ekscarMVC.Models.Maintenance
         [Display(Name = "Yıl")]
         public string Year { get; set; }
 
-        [Required(ErrorMessage = "Bu alan gereklidir!")]
+       [Required(ErrorMessage = "Bu alan gereklidir!")]
         [Display(Name = "Vites")]
         public int GearId { get; set; }
 
@@ -49,7 +36,15 @@ namespace ekscarMVC.Models.Maintenance
         [Display(Name = "Yakıt")]
         public int FuelId { get; set; }
 
-        public string Description { get; set; }
+        [Required]
+        public DateTime FirstDate { get; set; } = DateTime.Now;
+        [Required]
+        public DateTime UpdateDate { get; set; } = DateTime.Now;
+        [Required(ErrorMessage = "Bu alan gereklidir!")]
+        [Display(Name = "Aktif")]
+        public bool IsActive { get; set; } = true;
+        [Required]
+        public bool IsDeleted { get; set; } = false;
 
 
         public CarBrand Brand { get; set; }
@@ -57,8 +52,7 @@ namespace ekscarMVC.Models.Maintenance
         public CarType Type { get; set; }
         public CarGearType Gear { get; set; }
         public CarFuelType Fuel { get; set; }
-        public City City { get; set; }
-        public Region Region { get; set; }
+
 
     }
 }

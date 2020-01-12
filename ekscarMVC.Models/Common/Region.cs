@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ekscarMVC.Models
+namespace ekscarMVC.Models.Common
 {
     public class Region
     {
@@ -20,10 +20,15 @@ namespace ekscarMVC.Models
         [Display(Name = "İlçe")]
         [DataType(DataType.Text)]
         public string Name { get; set; }
+        [Required]
+        [Display(Name="Şehir")]
+        public int CityId { get; set; }
+
+
 
         public City City { get; set; }
 
-        public int CityId { get; set; }
 
+        public ICollection<Maintenance.Maintenance> Maintenance { get; set; }
     }
 }

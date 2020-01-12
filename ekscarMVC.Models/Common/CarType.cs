@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ekscarMVC.Models.Common
 {
-    public class CarBrand
+    public class CarType
     {
         [Key]
         [Required]
@@ -17,7 +17,7 @@ namespace ekscarMVC.Models.Common
 
         [Required(ErrorMessage = "Bu alan gereklidir")]
         [StringLength(250, ErrorMessage = "En fazla 250 karakter!")]
-        [Display(Name = "Marka")]
+        [Display(Name = "Araç Tipi")]
         [DataType(DataType.Text)]
         public string Name { get; set; }
 
@@ -32,7 +32,8 @@ namespace ekscarMVC.Models.Common
         [Required]
         public bool IsDeleted { get; set; } = false;
 
-        public ICollection<CarModel> CarModel { get; set; }
         public ICollection<Maintenance.Maintenance> Maintenance { get; set; }
+
+
     }
 }
