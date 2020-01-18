@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -14,7 +15,7 @@ namespace ekscarMVC.Controllers
         // GET: Maintenances
         public ActionResult Index()
         {
-            var maintenance = db.Maintenance.Include(m => m.Brand).Include(m => m.City).Include(m => m.Fuel).Include(m => m.Gear).Include(m => m.Model).Include(m => m.Region).Include(m => m.Type);
+            var maintenance = db.Maintenance.Include(m => m.City).Include(m => m.Region).Include(m => m.Model).Include(m => m.Brand).Include(m => m.Fuel).Include(m => m.Gear).Include(m => m.Type).Where(m=>m.CityId==1 && m.Region.CityId ==1);
             return View(maintenance.ToList());
         }
 
@@ -36,12 +37,12 @@ namespace ekscarMVC.Controllers
         // GET: Maintenances/Create
         public ActionResult Create()
         {
-            ViewBag.BrandId = new SelectList(db.CarBrand, "Id", "Name");
-            ViewBag.CityId = new SelectList(db.City, "Id", "Name");
+            ViewBag.CityId = new SelectList(db.City, "Id", "Name",1);
+            ViewBag.RegionId = new SelectList(db.Region.Where(m=>m.CityId==1), "Id", "Name");
+            ViewBag.BrandId = new SelectList(db.CarBrand, "Id", "Name");       
             ViewBag.FuelId = new SelectList(db.CarFuelType, "Id", "Name");
             ViewBag.GearId = new SelectList(db.CarGearType, "Id", "Name");
             ViewBag.ModelId = new SelectList(db.CarModel, "Id", "Name");
-            ViewBag.RegionId = new SelectList(db.Region, "Id", "Name");
             ViewBag.TypeId = new SelectList(db.CarType, "Id", "Name");
             return View();
         }
@@ -68,6 +69,18 @@ namespace ekscarMVC.Controllers
             ViewBag.RegionId = new SelectList(db.Region, "Id", "Name", maintenance.RegionId);
             ViewBag.TypeId = new SelectList(db.CarType, "Id", "Name", maintenance.TypeId);
             return View(maintenance);
+        }
+
+        public JsonResult FetchRegion(int CityId)
+        {
+            List<SelectListItem> PList = new List<SelectListItem>();
+            PList = db.Region.Where(m=>m.CityId == CityId).Select(i => new SelectListItem()
+                     {
+                         Text = i.Name,
+                         Value = i.Id.ToString()
+                     }).ToList();
+
+            return Json(PList, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Maintenances/Edit/5

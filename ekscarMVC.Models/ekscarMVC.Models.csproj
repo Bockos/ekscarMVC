@@ -56,29 +56,9 @@
     <Compile Include="Common\City.cs" />
     <Compile Include="Base.cs" />
     <Compile Include="Maintenance\Maintenance.cs" />
-    <Compile Include="Migrations\202001111112367_first-migration.cs" />
-    <Compile Include="Migrations\202001111112367_first-migration.Designer.cs">
-      <DependentUpon>202001111112367_first-migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001111234554_model-edit1.cs" />
-    <Compile Include="Migrations\202001111234554_model-edit1.Designer.cs">
-      <DependentUpon>202001111234554_model-edit1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001111243040_model-edit2.cs" />
-    <Compile Include="Migrations\202001111243040_model-edit2.Designer.cs">
-      <DependentUpon>202001111243040_model-edit2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001111259209_edit-maintenance.cs" />
-    <Compile Include="Migrations\202001111259209_edit-maintenance.Designer.cs">
-      <DependentUpon>202001111259209_edit-maintenance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001111309110_edit-maintenance1.cs" />
-    <Compile Include="Migrations\202001111309110_edit-maintenance1.Designer.cs">
-      <DependentUpon>202001111309110_edit-maintenance1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001111311528_edit-maintenance2.cs" />
-    <Compile Include="Migrations\202001111311528_edit-maintenance2.Designer.cs">
-      <DependentUpon>202001111311528_edit-maintenance2.cs</DependentUpon>
+    <Compile Include="Migrations\202001181135521_mig1.cs" />
+    <Compile Include="Migrations\202001181135521_mig1.Designer.cs">
+      <DependentUpon>202001181135521_mig1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,23 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001111112367_first-migration.resx">
-      <DependentUpon>202001111112367_first-migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001111234554_model-edit1.resx">
-      <DependentUpon>202001111234554_model-edit1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001111243040_model-edit2.resx">
-      <DependentUpon>202001111243040_model-edit2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001111259209_edit-maintenance.resx">
-      <DependentUpon>202001111259209_edit-maintenance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001111309110_edit-maintenance1.resx">
-      <DependentUpon>202001111309110_edit-maintenance1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001111311528_edit-maintenance2.resx">
-      <DependentUpon>202001111311528_edit-maintenance2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001181135521_mig1.resx">
+      <DependentUpon>202001181135521_mig1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
